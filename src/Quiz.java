@@ -1,9 +1,26 @@
 public class Quiz {
 
+    public static void main(String[] args) {
+        System.out.println(noVowels("Hello"));
+        System.out.println(findN(11));
+
+    }
+
 
 
     /** 1. Write a method that returns the number of vowels in a string.
            Consider a, e, i, o, u as vowels. **/
+
+    public static int noVowels (String vowels) {
+        int no = 0;
+        for (int i = 0; i < vowels.length(); i++) {
+            if (vowels.charAt(i) == 'a' || vowels.charAt(i) == 'e' || vowels.charAt(i) == 'i' || vowels.charAt(i) == 'o' || vowels.charAt(i) == 'u') {
+                no++;
+            }
+
+        }
+        return no;
+    }
 
 
 
@@ -25,6 +42,21 @@ public class Quiz {
 
         Answer: 1 (only one number doesn't divide integer by any of 2, 3, 5) **/
 
+public static int findN (int n){
+    int div = 0;
+    for (int i = 0; i <= n; n--){
+        if (n % 2 != 0 && n % 3 != 0 && n % 5 != 0)
+        {
+            div++;
+        }
+
+    }
+
+    return div;
+
+
+}
+
 
 
 
@@ -38,5 +70,21 @@ public class Quiz {
 
            "The_Stealth-Warrior" gets converted to "TheStealthWarrior" **/
 
+    public static String camelCaseMe(String a) {
+        String b ="";
+        if (a.charAt(0) != '_' && a.charAt(0) != '-') {
+            b += "" + a.charAt(0);
+        }
+        for (int i = 1; i < a.length();i++) {
+            char c = a.charAt(i);
+            if (c != '_' && c != '-') {
+                if (a.charAt(i-1) == '_' || a.charAt(i-1)=='-' && c > 96) {
+                    c -= 32;
+                }
+                b += "" + c;
+            }
+        }
+        return b;
+    }
 
 }
